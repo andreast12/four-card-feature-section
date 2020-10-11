@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 }
 
+/* ============
+	global
+=========== */
+
 :root {
 	--red: hsl(0, 78%, 62%);
 	--cyan: hsl(180, 62%, 55%);
@@ -78,19 +82,19 @@ main {
 	height: 5px;
 }
 
-.card:first-child .top-bar {
+.card-1 .top-bar {
 	background-color: var(--cyan);
 }
 
-.card:nth-child(2) .top-bar {
+.card-2 .top-bar {
 	background-color: var(--red);
 }
 
-.card:nth-child(3) .top-bar {
+.card-3 .top-bar {
 	background-color: var(--orange);
 }
 
-.card:last-child .top-bar {
+.card-4 .top-bar {
 	background-color: var(--blue);
 }
 
@@ -106,8 +110,58 @@ main {
 ============== */
 
 @media (min-width: 900px) {
+	/* ============
+		global
+	=========== */
+
 	.container {
 		width: 80%;
 		max-width: none;
+	}
+
+
+	/* ============
+		header
+	=========== */
+
+	header {
+		margin-top: 10vh;
+	}
+
+
+	/* ============
+		main
+	=========== */
+
+	main .container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+		gap: 2em;
+		grid-template-areas: 
+			". card-2 ."
+			"card-1 card-2 card-4"
+			"card-1 card-3 card-4"
+			". card-3 .";
+	}
+
+	.card {
+		margin: 0
+	}
+
+	.card-1 {
+		grid-area: card-1;
+	}
+
+	.card-2 {
+		grid-area: card-2;
+	}
+
+	.card-3 {
+		grid-area: card-3;
+	}
+
+	.card-4 {
+		grid-area: card-4;
 	}
 }
